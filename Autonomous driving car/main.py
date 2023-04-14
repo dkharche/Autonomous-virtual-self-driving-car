@@ -1,10 +1,13 @@
 import pygame
 pygame.init()
+
+
 window = pygame.display.set_mode((1200,400))
 
 track = pygame.image.load('path29.png')
 
 car = pygame.image.load('car1.png')
+font = pygame.font.SysFont("Arial", 25)
 
 car = pygame.transform.scale(car, (43, 60))
 
@@ -37,6 +40,8 @@ cam_x_offset = 0
 cam_y_offset = 0
 direction = 'up'
 
+counter = 100
+
 drive = True
 clock = pygame.time.Clock()
 while drive:
@@ -46,6 +51,12 @@ while drive:
     clock.tick(60)
     obs_x=obs_x-0.05
     obs3_x = obs3_x+0.05
+
+    counter -= 0.05
+
+    text = font.render(str(int(counter)), True, (0, 0, 0))
+    text_rect = text.get_rect(center=(155, 350))
+
 
     cam_x = car_x + cam_x_offset + 15
     cam_y = car_y + cam_y_offset + 15
@@ -95,11 +106,19 @@ while drive:
 
     elif direction == 'up' and left_px == 255:
         car_y = car_y - 2
+
+
+
+
+
+
     window.blit(track, (0, 0))
+    window.blit(text, text_rect)
     window.blit(car, (car_x, car_y))
     window.blit(obs, (obs_x, obs_y))
     window.blit(obs1, (obs1_x, obs1_y))
     window.blit(obs2, (obs2_x, obs2_y))
+
     window.blit(obs3, (obs3_x, obs3_y))
     pygame.draw.circle(window, (0, 255, 0), (cam_x, cam_y), 5, 5)
     pygame.display.update()
