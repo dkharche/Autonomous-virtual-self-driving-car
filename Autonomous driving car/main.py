@@ -4,6 +4,7 @@ pygame.init()
 
 window = pygame.display.set_mode((1200,400))
 
+
 track = pygame.image.load('path29.png')
 
 car = pygame.image.load('car1.png')
