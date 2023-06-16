@@ -1,7 +1,10 @@
 import pygame
+import math
 pygame.init()
 
+
 window = pygame.display.set_mode((1200,400))
+
 track = pygame.image.load('path29.png')
 
 car = pygame.image.load('car1.png')
@@ -38,7 +41,7 @@ cam_x_offset = 0
 cam_y_offset = 0
 direction = 'up'
 
-counter = 100
+# counter = 100
 
 drive = True
 clock = pygame.time.Clock()
@@ -50,7 +53,41 @@ while drive:
     obs_x=obs_x-0.05
     obs3_x = obs3_x+0.05
 
-    counter -= 0.05
+    # counter -= 0.05
+    # 
+    # petrolPump_x = 550
+    # petrolPump_y = 150
+    # def goToPetrolPump(self, petrol_pump_x, petrol_pump_y, car_x, car_y, car, counter):
+    #     dist_from_petrol_pump = self.distance(petrol_pump_x, petrol_pump_y)
+
+    # def distance(self, pmX, pmY):
+    #     xDist = math.sqrt(((car_x - pmX) * (car_x - pmX)))
+    #     yDist = math.sqrt(((car_y - pmY) * (car_y - pmY)))
+    # 
+    #     if xDist > yDist:
+    #         greaterDist = xDist
+    #     else:
+    #         greaterDist = yDist
+    #     return greaterDist
+
+    # if counter<20:
+    #     def goToPetrolPump(self, petrol_pump_x, petrol_pump_y, car_x, car_y, car, counter):
+    #         dist_from_petrol_pump = self.distance(petrol_pump_x, petrol_pump_y)
+    #         car = pygame.transform.rotate(car, 180)
+    #         if counter < 20 and dist_from_petrol_pump > 0:
+    #             if car_x > petrol_pump_x and direction == 'up' and up_px == 255:
+    #                 car_y = car_y - 2
+    # 
+    #             elif car_x < petrol_pump_x and direction == 'right' and right_px == 255:
+    #                 car_x = car_x + 2
+    #             elif car_y > petrol_pump_y and direction == 'up' and left_px == 255:
+    #                 car_y = car_y - 2
+    #             elif car_y < petrol_pump_y and direction == 'down' and down_px == 255:
+    #                 car_y = car_y + 2
+    #             self.chargeLevel -= 0.1
+    #         else:
+    #             self.carStop = True
+    #             counter += 0.05
 
     text = font.render(str(int(counter)), True, (0, 0, 0))
     text_rect = text.get_rect(center=(155, 350))
@@ -105,9 +142,9 @@ while drive:
     elif direction == 'up' and left_px == 255:
         car_y = car_y - 2
 
-
-
-
+    # Initializing coordinates of the petrol pump
+    petrolPump_x = 550
+    petrolPump_y = 150
 
 
     window.blit(track, (0, 0))
