@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  autonomousdrivingcar:
+    image: autonomousdrivingcar
+    build:
+      context: .
+      dockerfile: ./Dockerfile
